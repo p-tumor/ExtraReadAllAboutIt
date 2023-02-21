@@ -1,12 +1,7 @@
 public class Address {
-    private String srtNumber;
-    private String srtName;
-    private String aptNum;
-    private String city;
-    private String state;
-    private int zip;
+    private String srtNumber,srtName,aptNum,city,state,zip;
 
-    public Address(String srtNumber, String srtName, String aptNum, String city, String state, int zip) {
+    public Address(String srtNumber, String srtName, String aptNum, String city, String state, String zip) {
         this.srtNumber = srtNumber;
         this.srtName = srtName;
         this.aptNum = aptNum;
@@ -37,7 +32,7 @@ public class Address {
         temp.delete(0,temp.indexOf(",")+2);
         this.state = temp.substring(0,temp.indexOf(" "));
         temp.delete(0,temp.indexOf(" ")+1);
-        this.zip = Integer.parseInt(temp.toString());
+        this.zip = temp.toString();
     }
 
     public String getSrtNumber() {
@@ -60,7 +55,7 @@ public class Address {
         return state;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 

@@ -1,12 +1,12 @@
 public class Package {
     private Address origin;
     private Address destination;
-    private int weightInPounds;
-    private int length;
-    private int height;
-    private int width;
+    private double weightInPounds;
+    private int height, width, length;
 
-    public Package(Address origin, Address destination, int weightInPounds, int length, int height, int width) {
+    public Package(Address origin, Address destination, double weightInPounds, int length, int height, int width) {
+        if(weightInPounds < .1) throw new ArithmeticException("Weight of package cannot be less than a tenth of a pound.");
+        if((height < 2) || (width < 2) || (length < 2)) throw new ArithmeticException("Dimensions of package cannot be less than 2 inches.");
         this.origin = origin;
         this.destination = destination;
         this.weightInPounds = weightInPounds;
@@ -23,7 +23,7 @@ public class Package {
         return destination;
     }
 
-    public int getWeightInPounds() {
+    public double getWeightInPounds() {
         return weightInPounds;
     }
 
